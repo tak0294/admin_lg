@@ -20,20 +20,34 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->database();
-		$this->load->library("FluentPDO/FluentPDO", array("pdo"=>$this->db->conn_id));
-		//$query = $this->fluentpdo->from('M_admin')->where('admin_id = ?', 'admin')->getQuery();
-		$statement = $this->fluentpdo->from('M_admin')->where(array("admin_id LIKE" => "%dmin%"))->order("admin_id desc");
-		
-		$param = $statement->getParameters();
-		$sql   = $statement->getQuery();
-		echo $sql;
-		print_r($param);
-		$res = $this->db->query($sql, $param)->result();
-		print_r($res);
-		//foreach($query as $row) {
+//		$this->load->database();
+//		$this->load->library("vendor/FluentPDO/FluentPDO", array("pdo"=>$this->db->conn_id));
+//		//$query = $this->fluentpdo->from('M_admin')->where('admin_id = ?', 'admin')->getQuery();
+//		$statement = $this->fluentpdo->from('M_admin')->where(array("admin_id LIKE" => "%dmin%"))->order("admin_id desc");
+//
+//		$param = $statement->getParameters();
+//		$sql   = $statement->getQuery();
+//		echo $sql;
+//		print_r($param);
+//		$res = $this->db->query($sql, $param)->result();
+//		print_r($res);
+//		//foreach($query as $row) {
 			//print_r($row);
 		//}
+
+		$this->load->library("/user/db/DbUtil");
+		$in = array();
+		$in["admin_id LIKE ?"] = "%aad%";
+//		$in["admin_createdatetime"] = date("Y-m-d");
+		$in["find_in_set(?, admin_id)"] = "admin1";
+		$in["order"] = "admin_id DESC";
+		$in["limit"] = 10;
+		$in["offset"] = 0;
+		$res = $this->dbutil->get("M_admin", $in);
+		print_r($res);
+
+		$blogs = $this->dbutil->query("SELECT * FROM M_blog WHERE blog_id = 1");
+		print_r($blogs);
 
 		$this->load->view('welcome_message');
 	}

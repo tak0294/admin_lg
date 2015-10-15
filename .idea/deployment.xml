@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="tak0294.fam.cx">
+    <serverData>
+      <paths name="tak0294.fam.cx">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/tak/public_html/admin_ig" local="$PROJECT_DIR$" web="admin_lg/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
