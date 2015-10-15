@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -35,19 +35,15 @@ class Welcome extends CI_Controller {
 			//print_r($row);
 		//}
 
-		$this->load->library("/user/db/DbUtil");
-		$in = array();
-		$in["admin_id LIKE ?"] = "%aad%";
-//		$in["admin_createdatetime"] = date("Y-m-d");
-		$in["find_in_set(?, admin_id)"] = "admin1";
-		$in["order"] = "admin_id DESC";
-		$in["limit"] = 10;
-		$in["offset"] = 0;
-		$res = $this->dbutil->get("M_admin", $in);
+        $this->load->model("Blog_Model");
+
+		$res = $this->Blog_Model->getById(2);
 		print_r($res);
 
-		$blogs = $this->dbutil->query("SELECT * FROM M_blog WHERE blog_id = 1");
-		print_r($blogs);
+        $in = array();
+        $in["blog_id"] = 2;
+        $res = $this->Blog_Model->get($in);
+        print_r($res);
 
 		$this->load->view('welcome_message');
 	}

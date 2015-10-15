@@ -51,6 +51,7 @@ class DbUtil
         $sql   = $statement->getQuery();
 
         $q = $this->CI->db->query($sql, $param);
+
         if(!$q) {
             return false;
         }
