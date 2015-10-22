@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends MY_Controller {
+class News extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,7 +18,7 @@ class Welcome extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function article()
 	{
 //		$this->load->database();
 //		$this->load->library("vendor/FluentPDO/FluentPDO", array("pdo"=>$this->db->conn_id));
@@ -35,11 +35,9 @@ class Welcome extends MY_Controller {
 			//print_r($row);
 		//}
 //phpinfo();
-
+print_r($_REQUEST);
         $this->load->model("Blog_Model");
 		$res = $this->Blog_Model->getById(2);
-
-        print_r($res);
 
         $in = array();
         $in["blog_id"] = 1;

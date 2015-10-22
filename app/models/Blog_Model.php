@@ -13,6 +13,7 @@ class Blog_Model extends MY_Model {
     public function getById($id) {
         $in = array();
         $in["blog_id"] = $id;
+        print_r($in);
         return $this->get($in);
     }
 }
