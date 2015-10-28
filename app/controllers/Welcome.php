@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends MY_Controller {
+class Welcome extends MY_AdminController {
 
 	/**
 	 * Index Page for this controller.
@@ -35,7 +35,6 @@ class Welcome extends MY_Controller {
 			//print_r($row);
 		//}
 //phpinfo();
-
         $this->load->model("Blog_Model");
 		$res = $this->Blog_Model->getById(2);
 

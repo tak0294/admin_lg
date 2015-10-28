@@ -40,6 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $autoload['packages'] = array();
+$autoload['packages'] = array(APPPATH . 'third_party/smarty');
 
 /*
 | -------------------------------------------------------------------
@@ -59,6 +60,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
 $autoload['libraries'] = array();
+$autoload['libraries'] = array('smarty');
 
 /*
 | -------------------------------------------------------------------
