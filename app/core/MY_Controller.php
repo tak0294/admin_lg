@@ -15,3 +15,5 @@ class MY_Controller extends CI_Controller {
         // something
     }
 }
+
+require(APPPATH.'libraries/controllers/Admin_Controller.php'); // contains some logic applicable only to `admin` controllers

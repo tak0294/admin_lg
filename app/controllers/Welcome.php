@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends MY_Admin_Controller {
+class Welcome extends Admin_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +20,7 @@ class Welcome extends MY_Admin_Controller {
 	 */
 	public function index()
 	{
+
 //		$this->load->database();
 //		$this->load->library("vendor/FluentPDO/FluentPDO", array("pdo"=>$this->db->conn_id));
 //		//$query = $this->fluentpdo->from('M_admin')->where('admin_id = ?', 'admin')->getQuery();
